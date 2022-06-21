@@ -1,11 +1,13 @@
 pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Running build automation'
-                sh 'npm install'
-                archiveArtifacts artifacts: './nodejs-demo-app.zip'
+    agent {
+    // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
+    dockerfile {
+        filename 'Dockerfile.build'
+        dir 'build'
+        additionalBuildArgs  '--build-arg version=1.0.2'
+        args '-v /tmp:/tmp'
+    }
+}
             }
         }
         stage ('Build Docker Image ') {
