@@ -5,7 +5,7 @@ stage("build") {
 steps {
 
 sh """
-docker build -t nodejs-app .
+sudo docker build -t nodejs-app .
 """
 
 }
@@ -13,7 +13,7 @@ docker build -t nodejs-app .
 stage("run") {
 steps {
  sh """
- docker run --publish 8012:8080 --rm nodejs-app
+ sudo docker run --publish 8012:8080 --rm nodejs-app
 """
 
 }
