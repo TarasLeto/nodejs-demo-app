@@ -6,20 +6,10 @@ stage("build") {
 steps {
 
 sh """
-docker build -t image_name .
+docker version
 """
 
 }
 }
-stage("run") {
-steps {
- sh """
- docker run —publish 8012:8080 —rm image_name
-"""
-
 }
-
-}
-}
-
 }
