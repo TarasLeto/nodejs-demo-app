@@ -8,8 +8,7 @@ pipeline {
         args '-v /tmp:/tmp'
     }
 }
-            }
-        }
+}
         stage ('Build Docker Image ') {
             when {
                 branch 'main'
