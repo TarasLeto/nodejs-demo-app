@@ -4,8 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build automation'
-                sh './gradlew build --no-daemon'
-                archiveArtifacts artifacts: 'dist/nodejs-demo-app.zip'
+                sh 'npm install'
+                archiveArtifacts artifacts: './nodejs-demo-app.zip'
             }
         }
         stage ('Build Docker Image ') {
