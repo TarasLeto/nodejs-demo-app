@@ -5,7 +5,7 @@ pipeline {
        steps {
          nodejs('Node-10.17')
             sh 'npm install'
-            sh ' npm buid'
+            sh ' npm build package.json'
          
        }
     }
