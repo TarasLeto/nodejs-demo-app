@@ -1,14 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('Cloning Git') {
-      steps {
-        git '/https://github.com/TarasLeto/nodejs-demo-app'
-      }
-    }
     stage('Build') {
        steps {
-         sh 'npm install'
+         nodejs('Node-10.17')
+            sh 'npm install'
+            sh ' npm buid'
+         
        }
     }
     stage('Test') {
